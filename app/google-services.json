@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "100443512152",
+    "firebase_url": "https://smart-helmet-35a6a.firebaseio.com",
+    "project_id": "smart-helmet-35a6a",
+    "storage_bucket": "smart-helmet-35a6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100443512152:android:dcf8e74a110bbaa2",
+        "android_client_info": {
+          "package_name": "br.com.fiap.smarthelmet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100443512152-aka0et6kjsu4kg1t8pu8a6bpneh8pjd7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fiap.smarthelmet",
+            "certificate_hash": "91042d4949db9d7638d6bac5bb59013a7b3608aa"
+          }
+        },
+        {
+          "client_id": "100443512152-bg52tuko0e9963439mkoh0sndqencv63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9ICnS-iP2PtshBm2jjoYOAyy3dhgx6Mk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100443512152-bg52tuko0e9963439mkoh0sndqencv63.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
