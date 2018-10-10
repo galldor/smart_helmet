@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TeamFragment extends Fragment {
+public class PlayersFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -18,12 +18,12 @@ public class TeamFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public TeamFragment() {
+    public PlayersFragment() {
         // Required empty public constructor
     }
 
-    public static TeamFragment newInstance(String param1, String param2) {
-        TeamFragment fragment = new TeamFragment();
+    public static PlayersFragment newInstance(String param1, String param2) {
+        PlayersFragment fragment = new PlayersFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
