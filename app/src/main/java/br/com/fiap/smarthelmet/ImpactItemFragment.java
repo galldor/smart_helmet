@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -73,7 +74,7 @@ public class ImpactItemFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_impact_item_list, container, false);
 
         impactItemList = new ArrayList<>();
-
+        initLineImpactList();
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -93,12 +94,13 @@ public class ImpactItemFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Double impactValue = dataSnapshot.getValue(Double.class);
+                Date currentTime = Calendar.getInstance().getTime();
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+                String currentDateTimeString = sdf.format(currentTime);
                 Log.d(TAG, "value is: " + dataSnapshot.getValue(Double.class));
-                if(impactValue > 1.0) {
-                    Date currentTime = Calendar.getInstance().getTime();
-                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-                    String currentDateTimeString = sdf.format(currentTime);
-                    impactItemList.add(0, new ImpactItem(currentDateTimeString, impactValue.toString() + " Kg", "details"));
+                ImpactItem lastValue = impactItemList.isEmpty() ? null : impactItemList.get(0);
+                if(impactValue > 1.0 && ( lastValue == null  || lastValue.details != impactValue )) {
+                    impactItemList.add(0, new ImpactItem(currentDateTimeString, impactValue.toString() + " Kg", impactValue));
                     adapter.notifyDataSetChanged();
                 }
             }
@@ -111,6 +113,28 @@ public class ImpactItemFragment extends Fragment {
 
         return view;
     }
+
+    private void initLineImpactList(){
+        impactItemList = new ArrayList<>();
+        for(String datetime : getHashDatabaseValues().keySet()){
+            impactItemList.add(0, new ImpactItem(datetime, getHashDatabaseValues().get(datetime) + " Kg", getHashDatabaseValues().get(datetime)));
+        }
+        impactItemList.remove(0);
+    }
+
+
+    private MainActivity getMainActivity(){
+        return ((MainActivity) getActivity());
+    }
+
+    private HashMap<String, Double> getHashDatabaseValues() {
+        return getMainActivity().getFirabaseHashValues();
+    }
+
+    private List<Double> getFirabaseValues() {
+        return getMainActivity().getFirabaseValues();
+    }
+
 
 
     @Override

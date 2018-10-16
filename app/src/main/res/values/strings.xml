@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">SmartHelmet</string>
     <string name="title_team">Time</string>
-    <string name="title_players">Jogadores</string>
-    <string name="title_account">Conta</string>
+    <string name="title_players">Atleta</string>
+    <string name="title_graph">Gráfico</string>
     <string name="title_activity_player">Player</string>
     <string name="title_notifications">Notificações</string>
     <string name="title_activity_login">Autenticar</string>
