@@ -119,7 +119,9 @@ public class ImpactItemFragment extends Fragment {
         for(String datetime : getHashDatabaseValues().keySet()){
             impactItemList.add(0, new ImpactItem(datetime, getHashDatabaseValues().get(datetime) + " Kg", getHashDatabaseValues().get(datetime)));
         }
-        impactItemList.remove(0);
+        if(!impactItemList.isEmpty()) {
+            impactItemList.remove(0);
+        }
     }
 
 
